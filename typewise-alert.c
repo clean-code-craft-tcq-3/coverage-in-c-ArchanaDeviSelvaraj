@@ -1,13 +1,12 @@
 #include "typewise-alert.h"
 #include <stdio.h>
 
-BreachType inferBreach(double value, double lowerLimit, double upperLimit) {
-  if(value < lowerLimit) {
+BreachType inferBreach(double value, double lowerLimit, double upperLimit) 
+{
+  if(value < lowerLimit) 
     return TOO_LOW;
-  }
-  if(value > upperLimit) {
+  if(value > upperLimit) 
     return TOO_HIGH;
-  }
   return NORMAL;
 }
 
@@ -21,14 +20,11 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
   return inferBreach(temperatureInC, 0, 40);
 }
 
-void checkAndAlert(
-    AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) {
-
-  BreachType breachType = classifyTemperatureBreach(
-    batteryChar.coolingType, temperatureInC
-  );
-
-  switch(alertTarget) {
+void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
+{
+  BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
+  switch(alertTarget) 
+  {
     case TO_CONTROLLER:
       sendToController(breachType);
       break;
@@ -38,14 +34,17 @@ void checkAndAlert(
   }
 }
 
-void sendToController(BreachType breachType) {
+void sendToController(BreachType breachType) 
+{
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
 }
 
-void sendToEmail(BreachType breachType) {
+void sendToEmail(BreachType breachType) 
+{
   const char* recepient = "a.b@c.com";
-  switch(breachType) {
+  switch(breachType) 
+  {
     case TOO_LOW:
       printf("To: %s\n", recepient);
       printf("Hi, the temperature is too low\n");
