@@ -47,3 +47,8 @@ TEST_CASE("classifies Temperature Breach for MED_ACTIVE Cooling") {
   REQUIRE(classifyTemperatureBreachforPassiveCooling(PASSIVE_COOLING,50) == TOO_HIGH);
   REQUIRE(classifyTemperatureBreachforPassiveCooling(HI_ACTIVE_COOLING,20) == NORMAL);
 }
+
+TEST_CASE("checks for value breach and alerts") {
+   checkAndAlert(TO_CONTROLLER , PASSIVE_COOLING , 0 );
+}
+  
