@@ -17,7 +17,7 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
   if(coolingType==PASSIVE_COOLING) 
     return inferBreach(temperatureInC, 0 , 35 );
   if(coolingType==HI_ACTIVE_COOLING) 
-    return BreachType breachType = inferBreach(temperatureInC, 0 , 45 );
+    return inferBreach(temperatureInC, 0 , 45 );
   if(coolingType==MED_ACTIVE_COOLING) 
      return inferBreach(temperatureInC, 0 , 40 );
 }
