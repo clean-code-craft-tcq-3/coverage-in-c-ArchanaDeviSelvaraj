@@ -20,7 +20,7 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
     BreachType breachType = inferBreach(temperatureInC, 0 , 45 );
   if(coolingType==MED_ACTIVE_COOLING) 
     BreachType breachType = inferBreach(temperatureInC, 0 , 40 );
-  return breachType;
+  return BreachType breachType;
 }
 
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
