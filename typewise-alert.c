@@ -34,7 +34,7 @@ BreachType classifyTemperatureBreachforMED_ACTIVECooling(CoolingType coolingType
 
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
-  return classifyTemperatureBreachforPassiveCooling(CoolingType coolingType, double temperatureInC); 
+  return classifyTemperatureBreachforPassiveCooling(coolingType, temperatureInC); 
  }
 
 
