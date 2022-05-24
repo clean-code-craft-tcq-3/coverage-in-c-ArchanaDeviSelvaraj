@@ -15,11 +15,12 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit)
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
   if(coolingType==PASSIVE_COOLING) 
-    return inferBreach(temperatureInC, 0 , 35 );
+    BreachType breachType = inferBreach(temperatureInC, 0 , 35 );
   if(coolingType==HI_ACTIVE_COOLING) 
-    return inferBreach(temperatureInC, 0 , 45 );
+    BreachType breachType = inferBreach(temperatureInC, 0 , 45 );
   if(coolingType==MED_ACTIVE_COOLING) 
-    return inferBreach(temperatureInC, 0 , 40 );
+    BreachType breachType = inferBreach(temperatureInC, 0 , 40 );
+  return breachType;
 }
 
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
