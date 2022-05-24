@@ -27,6 +27,14 @@ BreachType classifyTemperatureBreachforMED_ACTIVECooling(CoolingType coolingType
      return inferBreach(temperatureInC, 0 , 40 );
 }
 
+BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
+{
+  return classifyTemperatureBreachforPassiveCooling(CoolingType coolingType, double temperatureInC);
+  return classifyTemperatureBreachforHI_ActiveCooling(CoolingType coolingType, double temperatureInC);
+  return classifyTemperatureBreachforMED_ACTIVECooling(CoolingType coolingType, double temperatureInC);
+ }
+
+
 void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
 {
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
