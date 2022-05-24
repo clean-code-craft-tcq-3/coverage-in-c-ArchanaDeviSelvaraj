@@ -10,7 +10,7 @@ TEST_CASE("infers the breach according to limits") {
 }
 
 TEST_CASE("classifies Temperature Breach") {
-  REQUIRE(BreachType classifyTemperatureBreach(PASSIVE_COOLING,10) == NORMAL);
-  REQUIRE(BreachType classifyTemperatureBreach(PASSIVE_COOLING,40) == TOO_HIGH);
-  REQUIRE(BreachType classifyTemperatureBreach(PASSIVE_COOLING,-10) == TOO_LOW);
+  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,10) == NORMAL);
+  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,40) == TOO_HIGH);
+  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,-10) == TOO_LOW);
 }
