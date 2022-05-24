@@ -17,14 +17,14 @@ BreachType classifyTemperatureBreachforPassiveCooling(CoolingType coolingType, d
   if(coolingType==PASSIVE_COOLING) 
     return inferBreach(temperatureInC, 0 , 35 );
   else
-    return classifyTemperatureBreachforHI_ActiveCooling(CoolingType coolingType, double temperatureInC);
+    return classifyTemperatureBreachforHI_ActiveCooling(coolingType, temperatureInC);
 }
 BreachType classifyTemperatureBreachforHI_ActiveCooling(CoolingType coolingType, double temperatureInC) 
 {
   if(coolingType==HI_ACTIVE_COOLING) 
     return inferBreach(temperatureInC, 0 , 45 );
   else
-    return classifyTemperatureBreachforMED_ACTIVECooling(CoolingType coolingType, double temperatureInC);
+    return classifyTemperatureBreachforMED_ACTIVECooling(coolingType, temperatureInC);
 }
 BreachType classifyTemperatureBreachforMED_ACTIVECooling(CoolingType coolingType, double temperatureInC) 
 {
