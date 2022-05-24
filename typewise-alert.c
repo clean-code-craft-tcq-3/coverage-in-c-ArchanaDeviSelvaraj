@@ -12,12 +12,17 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit)
   return NORMAL;
 }
 
-BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
+BreachType classifyTemperatureBreachforPassiveCooling(CoolingType coolingType, double temperatureInC) 
 {
   if(coolingType==PASSIVE_COOLING) 
     return inferBreach(temperatureInC, 0 , 35 );
+}
+BreachType classifyTemperatureBreachforHI_ActiveCooling(CoolingType coolingType, double temperatureInC) 
+{
   if(coolingType==HI_ACTIVE_COOLING) 
     return inferBreach(temperatureInC, 0 , 45 );
+}
+BreachType classifyTemperatureBreachforMED_ACTIVECooling(CoolingType coolingType, double temperatureInC) 
   if(coolingType==MED_ACTIVE_COOLING) 
      return inferBreach(temperatureInC, 0 , 40 );
 }
