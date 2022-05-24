@@ -20,3 +20,10 @@ TEST_CASE("classifies Temperature Breach") {
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,45) == TOO_HIGH);
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,-10) == TOO_LOW);
 }
+
+TEST_CASE("classifies Temperature Breach for Passive Cooling") {
+  REQUIRE(classifyTemperatureBreachforPassiveCooling(PASSIVE_COOLING,0) == NORMAL);
+  REQUIRE(classifyTemperatureBreachforPassiveCooling(PASSIVE_COOLING,35) == NORMAL);
+  REQUIRE(classifyTemperatureBreachforPassiveCooling(PASSIVE_COOLING,-1) == TOO_LOW);
+  REQUIRE(classifyTemperatureBreachforPassiveCooling(PASSIVE_COOLING,36) == TOO_HIGH);
+}
