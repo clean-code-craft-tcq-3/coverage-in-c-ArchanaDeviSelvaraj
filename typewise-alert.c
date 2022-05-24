@@ -23,6 +23,7 @@ BreachType classifyTemperatureBreachforHI_ActiveCooling(CoolingType coolingType,
     return inferBreach(temperatureInC, 0 , 45 );
 }
 BreachType classifyTemperatureBreachforMED_ACTIVECooling(CoolingType coolingType, double temperatureInC) 
+{
   if(coolingType==MED_ACTIVE_COOLING) 
      return inferBreach(temperatureInC, 0 , 40 );
 }
