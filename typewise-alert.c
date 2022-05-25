@@ -56,7 +56,7 @@ void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double
 
 void sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;
-  printf("%x : %s\n", header, breachType);
+  printf("%x : %x\n", header, breachType);
 }
 
 void sendToEmail(BreachType breachType) 
