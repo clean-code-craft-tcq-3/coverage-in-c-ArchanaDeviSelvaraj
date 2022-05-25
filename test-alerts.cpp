@@ -31,20 +31,28 @@ TEST_CASE("classifies Temperature Breach for Passive Cooling") {
 }
 
 TEST_CASE("classifies Temperature Breach for HI_Active Cooling") {
-  REQUIRE(classifyTemperatureBreachforPassiveCooling(HI_ACTIVE_COOLING,0) == NORMAL);
-  REQUIRE(classifyTemperatureBreachforPassiveCooling(HI_ACTIVE_COOLING,45) == NORMAL);
-  REQUIRE(classifyTemperatureBreachforPassiveCooling(HI_ACTIVE_COOLING,-1) == TOO_LOW);
-  REQUIRE(classifyTemperatureBreachforPassiveCooling(HI_ACTIVE_COOLING,46) == TOO_HIGH);
-  REQUIRE(classifyTemperatureBreachforPassiveCooling(PASSIVE_COOLING,-15) == TOO_LOW);
-  REQUIRE(classifyTemperatureBreachforPassiveCooling(MED_ACTIVE_COOLING,-3) == TOO_LOW);
+  REQUIRE(classifyTemperatureBreachforHI_ActiveCooling(HI_ACTIVE_COOLING,0) == NORMAL);
+  REQUIRE(classifyTemperatureBreachforHI_ActiveCooling(HI_ACTIVE_COOLING,45) == NORMAL);
+  REQUIRE(classifyTemperatureBreachforHI_ActiveCooling(HI_ACTIVE_COOLING,-1) == TOO_LOW);
+  REQUIRE(classifyTemperatureBreachforHI_ActiveCooling(HI_ACTIVE_COOLING,46) == TOO_HIGH);
+  REQUIRE(classifyTemperatureBreachforHI_ActiveCooling(PASSIVE_COOLING,-15) == TOO_LOW);
+  REQUIRE(classifyTemperatureBreachforHI_ActiveCooling(MED_ACTIVE_COOLING,-3) == TOO_LOW);
 }
 
 TEST_CASE("classifies Temperature Breach for MED_ACTIVE Cooling") {
-  REQUIRE(classifyTemperatureBreachforPassiveCooling(MED_ACTIVE_COOLING,0) == NORMAL);
-  REQUIRE(classifyTemperatureBreachforPassiveCooling(MED_ACTIVE_COOLING,40) == NORMAL);
-  REQUIRE(classifyTemperatureBreachforPassiveCooling(MED_ACTIVE_COOLING,-1) == TOO_LOW);
-  REQUIRE(classifyTemperatureBreachforPassiveCooling(MED_ACTIVE_COOLING,41) == TOO_HIGH);
-  REQUIRE(classifyTemperatureBreachforPassiveCooling(PASSIVE_COOLING,50) == TOO_HIGH);
-  REQUIRE(classifyTemperatureBreachforPassiveCooling(HI_ACTIVE_COOLING,20) == NORMAL);
+  REQUIRE(classifyTemperatureBreachforMED_ACTIVECooling(MED_ACTIVE_COOLING,0) == NORMAL);
+  REQUIRE(classifyTemperatureBreachforMED_ACTIVECooling(MED_ACTIVE_COOLING,40) == NORMAL);
+  REQUIRE(classifyTemperatureBreachforMED_ACTIVECooling(MED_ACTIVE_COOLING,-1) == TOO_LOW);
+  REQUIRE(classifyTemperatureBreachforMED_ACTIVECooling(MED_ACTIVE_COOLING,41) == TOO_HIGH);
+  REQUIRE(classifyTemperatureBreachforMED_ACTIVECooling(PASSIVE_COOLING,50) == TOO_HIGH);
+  REQUIRE(classifyTemperatureBreachforMED_ACTIVECooling(HI_ACTIVE_COOLING,20) == NORMAL);
 }
+
+TEST_CASE("if cooling type not available") {
+  REQUIRE(classifyTemperatureBreachforPassiveCooling(COOLING,0) == NONE);
+  REQUIRE(classifyTemperatureBreachforHI_ActiveCooling(COOLING,-1) == NONE);
+  REQUIRE(classifyTemperatureBreachforMED_ACTIVECooling(COOLING,41) == NONE);
+}
+  
+  
   
