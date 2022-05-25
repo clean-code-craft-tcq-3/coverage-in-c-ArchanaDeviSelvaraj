@@ -57,5 +57,8 @@ TEST_CASE("if cooling type not available") {
   REQUIRE(classifyTemperatureBreachforMED_ACTIVECooling(COOLING_TYPE_NOT_DEFINED,41) == NONE);
 }
   
+TEST_CASE("checks and alerts if there is temperature breach") {
+  BatteryCharacter batteryChar = PASSIVE_COOLING;
+}
   
   
