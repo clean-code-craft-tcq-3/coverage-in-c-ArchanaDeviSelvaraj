@@ -22,7 +22,8 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
 
 typedef enum {
   TO_CONTROLLER,
-  TO_EMAIL
+  TO_EMAIL,
+  NO_ALERT
 } AlertTarget;
 
 typedef struct {
