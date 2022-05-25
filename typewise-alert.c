@@ -58,11 +58,11 @@ AlertType sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
   if(breachType == NORMAL)
-    return SENT_TO_CONTROLLER;
+    return SENT_TEMP_LOW_TO_CONTROLLER;
   else if(breachType == TOO_LOW)
-    return SENT_TO_CONTROLLER;
+    return SENT_TEMP_HIGH_TO_CONTROLLER;
   else
-    return SENT_TO_CONTROLLER;
+    return NORMAL_NO_ALERT;
 }
 
 AlertType sendToEmail(BreachType breachType) 
