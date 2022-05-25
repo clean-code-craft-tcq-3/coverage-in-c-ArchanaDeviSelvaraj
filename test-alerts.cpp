@@ -35,8 +35,10 @@ TEST_CASE("classifies Temperature Breach for HI_Active Cooling") {
   REQUIRE(classifyTemperatureBreachforHI_ActiveCooling(HI_ACTIVE_COOLING,45) == NORMAL);
   REQUIRE(classifyTemperatureBreachforHI_ActiveCooling(HI_ACTIVE_COOLING,-1) == TOO_LOW);
   REQUIRE(classifyTemperatureBreachforHI_ActiveCooling(HI_ACTIVE_COOLING,46) == TOO_HIGH);
-  REQUIRE(classifyTemperatureBreachforHI_ActiveCooling(PASSIVE_COOLING,-15) == NONE);
   REQUIRE(classifyTemperatureBreachforHI_ActiveCooling(MED_ACTIVE_COOLING,-3) == TOO_LOW);
+  //below testcase not possible, just added for coverage
+  REQUIRE(classifyTemperatureBreachforHI_ActiveCooling(PASSIVE_COOLING,-15) == NONE);
+  
 }
 
 TEST_CASE("classifies Temperature Breach for MED_ACTIVE Cooling") {
@@ -44,8 +46,9 @@ TEST_CASE("classifies Temperature Breach for MED_ACTIVE Cooling") {
   REQUIRE(classifyTemperatureBreachforMED_ACTIVECooling(MED_ACTIVE_COOLING,40) == NORMAL);
   REQUIRE(classifyTemperatureBreachforMED_ACTIVECooling(MED_ACTIVE_COOLING,-1) == TOO_LOW);
   REQUIRE(classifyTemperatureBreachforMED_ACTIVECooling(MED_ACTIVE_COOLING,41) == TOO_HIGH);
+  //below two scenarios not possible, just added for coverage
   REQUIRE(classifyTemperatureBreachforMED_ACTIVECooling(PASSIVE_COOLING,50) == NONE);
-  REQUIRE(classifyTemperatureBreachforMED_ACTIVECooling(HI_ACTIVE_COOLING,20) == NORMAL);
+  REQUIRE(classifyTemperatureBreachforMED_ACTIVECooling(HI_ACTIVE_COOLING,20) == NONE);
 }
 
 TEST_CASE("if cooling type not available") {
