@@ -40,36 +40,41 @@ BreachType classifyTemperatureBreach(CoolingType coolingType, double temperature
  }
 
 
-void checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
+AlertType checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, double temperatureInC) 
 {
   BreachType breachType = classifyTemperatureBreach(batteryChar.coolingType, temperatureInC);
   switch(alertTarget) 
   {
     case TO_CONTROLLER:
-      sendToController(breachType);
+      AlertType = sendToController(breachType);
+      return AlertType;
       break;
     case TO_EMAIL:
-      sendToEmail(breachType);
+      AlertType = sendToEmail(breachType);
+      return AlertType;
       break;
   }
 }
 
-void sendToController(BreachType breachType) {
+AlertType sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
+  return SENT_TO_CONTROLLER;
 }
 
-void sendToEmail(BreachType breachType) 
+AlertType sendToEmail(BreachType breachType) 
 {
   const char* recepient = "a.b@c.com";
   if(breachType==TOO_LOW) 
   {
       printf("To: %s\n", recepient);
       printf("Hi, the temperature is too low\n");
+      return SENT_TEMP_LOW_ALERT;
   }
    else if(breachType==TOO_HIGH)
    {
       printf("To: %s\n", recepient);
       printf("Hi, the temperature is too high\n");
+      return SENT_TEMP_HIGH_ALERT;
    }
 }
