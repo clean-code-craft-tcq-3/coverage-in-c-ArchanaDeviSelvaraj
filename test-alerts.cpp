@@ -58,7 +58,7 @@ TEST_CASE("if cooling type not available") {
 }
   
 TEST_CASE("checks and alerts if there is temperature breach") {
-  BatteryCharacter batteryChar = PASSIVE_COOLING;
+  batteryChar.CoolingType = PASSIVE_COOLING;
 }
   
   
