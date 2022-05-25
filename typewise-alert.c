@@ -51,6 +51,8 @@ AlertType checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, d
     case TO_EMAIL:
       return sendToEmail(breachType);
       break;
+    case default:
+      return NO_ALERT_TARGET;
   }
 }
 
