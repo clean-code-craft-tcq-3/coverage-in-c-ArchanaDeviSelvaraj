@@ -54,10 +54,10 @@ AlertType checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, d
   }
 }
 
-BreachType sendToController(BreachType breachType) {
+AlertType sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;
   printf("%x : %x\n", header, breachType);
-  return breachType;
+  return SENT_TO_CONTROLLER;
 }
 
 AlertType sendToEmail(BreachType breachType) 
