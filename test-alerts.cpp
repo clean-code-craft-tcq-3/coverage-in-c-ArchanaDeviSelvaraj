@@ -62,6 +62,12 @@ TEST_CASE("checks and alerts if there is temperature breach") {
   batteryChar.coolingType = PASSIVE_COOLING;
   checkAndAlert(TO_CONTROLLER, batteryChar, -15);
   checkAndAlert(TO_EMAIL, batteryChar, -15);
+  batteryChar.coolingType = HI_ACTIVE_COOLING;
+  checkAndAlert(TO_CONTROLLER, batteryChar, 65);
+  checkAndAlert(TO_EMAIL, batteryChar, 65);
+  batteryChar.coolingType = MED_ACTIVE_COOLING;
+  checkAndAlert(TO_CONTROLLER, batteryChar, 25);
+  checkAndAlert(TO_EMAIL, batteryChar, 25);
 }
   
   
