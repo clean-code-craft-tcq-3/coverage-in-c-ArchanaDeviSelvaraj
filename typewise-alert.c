@@ -75,4 +75,6 @@ AlertType sendToEmail(BreachType breachType)
       printf("Hi, the temperature is too high\n");
       return SENT_TEMP_HIGH_ALERT;
    }
+       else
+         return NORMAL_NO_ALERT;
 }
