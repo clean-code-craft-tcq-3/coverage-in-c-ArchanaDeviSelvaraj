@@ -68,7 +68,14 @@ TEST_CASE("checks and alerts if there is temperature breach") {
   batteryChar.coolingType = MED_ACTIVE_COOLING;
   REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, 25) == NORMAL_NO_ALERT);
   REQUIRE(checkAndAlert(TO_EMAIL, batteryChar, 25) == NORMAL_NO_ALERT);
-  //checkAndAlert(NO_ALERT, batteryChar, 25);
+  checkAndAlert(NO_ALERT, batteryChar, 25);
 }
+
+TEST_CASE("sends alert to controller") {
+  REQUIRE(sendToController(TOO_LOW) == SENT_TEMP_LOW_TO_CONTROLLER);
+  REQUIRE(sendToController(TOO_HIGH) == SENT_TEMP_HIGH_TO_CONTROLLER);
+  REQUIRE(sendToController(NORMAL) == NORMAL_NO_ALERT);
+}
+
   
   
