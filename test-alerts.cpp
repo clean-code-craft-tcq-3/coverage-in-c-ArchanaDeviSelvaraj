@@ -60,7 +60,7 @@ TEST_CASE("if cooling type not available") {
 TEST_CASE("checks and alerts if there is temperature breach") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = PASSIVE_COOLING;
-  REQUIRE(checkAndAlert(TO_CONTROLLER, batteryChar, -15)== "feed : 1");
+  checkAndAlert(TO_CONTROLLER, batteryChar, -15);
   checkAndAlert(TO_EMAIL, batteryChar, -15);
   batteryChar.coolingType = HI_ACTIVE_COOLING;
   checkAndAlert(TO_CONTROLLER, batteryChar, 65);
