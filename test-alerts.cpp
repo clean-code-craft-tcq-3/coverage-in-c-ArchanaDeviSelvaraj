@@ -49,9 +49,9 @@ TEST_CASE("classifies Temperature Breach for MED_ACTIVE Cooling") {
 }
 
 TEST_CASE("if cooling type not available") {
-  REQUIRE(classifyTemperatureBreachforPassiveCooling(COOLING,0) == NONE);
-  REQUIRE(classifyTemperatureBreachforHI_ActiveCooling(COOLING,-1) == NONE);
-  REQUIRE(classifyTemperatureBreachforMED_ACTIVECooling(COOLING,41) == NONE);
+  REQUIRE(classifyTemperatureBreachforPassiveCooling(COOLING_TYPE_NOT_DEFINED,0) == NONE);
+  REQUIRE(classifyTemperatureBreachforHI_ActiveCooling(COOLING_TYPE_NOT_DEFINED,-1) == NONE);
+  REQUIRE(classifyTemperatureBreachforMED_ACTIVECooling(COOLING_TYPE_NOT_DEFINED,41) == NONE);
 }
   
   
