@@ -46,12 +46,10 @@ AlertType checkAndAlert(AlertTarget alertTarget, BatteryCharacter batteryChar, d
   switch(alertTarget) 
   {
     case TO_CONTROLLER:
-      AlertType = sendToController(breachType);
-      return AlertType;
+      return sendToController(breachType);
       break;
     case TO_EMAIL:
-      AlertType = sendToEmail(breachType);
-      return AlertType;
+      return sendToEmail(breachType);
       break;
   }
 }
