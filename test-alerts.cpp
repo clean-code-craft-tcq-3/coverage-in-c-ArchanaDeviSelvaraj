@@ -77,5 +77,11 @@ TEST_CASE("sends alert to controller") {
   REQUIRE(sendToController(NORMAL) == NORMAL_NO_ALERT);
 }
 
+TEST_CASE("sends alert in mail") {
+  REQUIRE(sendToEmail(TOO_LOW) == SENT_TEMP_LOW_ALERT);
+  REQUIRE(sendToEmail(TOO_HIGH) == SENT_TEMP_HIGH_ALERT);
+  REQUIRE(sendToEmail(NORMAL) == NORMAL_NO_ALERT);
+}
+
   
   
