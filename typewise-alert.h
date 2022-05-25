@@ -14,6 +14,12 @@ typedef enum {
   NONE
 } BreachType;
 
+typedef enum {
+  SENT_TO_CONTROLLER,
+  SENT_TEMP_LOW_ALERT,
+  SENT_TEMP_HIGH_ALERT,
+} AlertType;
+
 BreachType inferBreach(double value, double lowerLimit, double upperLimit);
 BreachType classifyTemperatureBreachforPassiveCooling(CoolingType coolingType, double temperatureInC);
 BreachType classifyTemperatureBreachforHI_ActiveCooling(CoolingType coolingType, double temperatureInC);
