@@ -59,6 +59,8 @@ TEST_CASE("if cooling type not available") {
   
 TEST_CASE("checks and alerts if there is temperature breach") {
   BatteryCharacter coolingType = {PASSIVE_COOLING};
+  checkAndAlert(TO_CONTROLLER, batteryChar, -15);
+  checkAndAlert(TO_EMAIL, batteryChar, -15);
 }
   
   
