@@ -18,6 +18,7 @@ typedef enum {
   SENT_TO_CONTROLLER,
   SENT_TEMP_LOW_ALERT,
   SENT_TEMP_HIGH_ALERT,
+  NORMAL_NO_ALERT
 } AlertType;
 
 BreachType inferBreach(double value, double lowerLimit, double upperLimit);
