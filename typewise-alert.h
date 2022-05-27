@@ -22,8 +22,6 @@ typedef enum {
   NORMAL_NO_ALERT
 } AlertType;
 
-int BreachLimitforCoolingTypeTemp[3][2] ={{0,35},{0,40},{0,45}};
-
 BreachType inferBreach(double value, double lowerLimit, double upperLimit);
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC);
 
