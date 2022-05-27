@@ -12,31 +12,13 @@ BreachType inferBreach(double value, double lowerLimit, double upperLimit)
   return NORMAL;
 }
 
-BreachType classifyTemperatureBreachforPassiveCooling(CoolingType coolingType, double temperatureInC) 
-{
-  if(coolingType==PASSIVE_COOLING) 
-    return inferBreach(temperatureInC, 0 , 35 );
-  else
-    return classifyTemperatureBreachforHI_ActiveCooling(coolingType, temperatureInC);
-}
-BreachType classifyTemperatureBreachforHI_ActiveCooling(CoolingType coolingType, double temperatureInC) 
-{
-  if(coolingType==HI_ACTIVE_COOLING) 
-    return inferBreach(temperatureInC, 0 , 45 );
-  else
-    return classifyTemperatureBreachforMED_ACTIVECooling(coolingType, temperatureInC);
-}
-BreachType classifyTemperatureBreachforMED_ACTIVECooling(CoolingType coolingType, double temperatureInC) 
-{
-  if(coolingType==MED_ACTIVE_COOLING) 
-     return inferBreach(temperatureInC, 0 , 40 );
-  else
-    return NONE;
-}
-
 BreachType classifyTemperatureBreach(CoolingType coolingType, double temperatureInC) 
 {
-  return classifyTemperatureBreachforPassiveCooling(coolingType, temperatureInC); 
+  int lowerLimit = 0;
+  int upperLimit = 0;
+  lowerLimit = BreachLimitforCoolingTypeTemp[(int)coolingType][0];
+  upperLimit = BreachLimitforCoolingTypeTemp[(int)coolingType][1];
+  return inferBreach(temperatureInC, lowerLimit, upperLimit);
  }
 
 
