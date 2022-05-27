@@ -19,12 +19,25 @@ TEST_CASE("classifies Temperature Breach") {
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,10) == NORMAL);
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,40) == TOO_HIGH);
   REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,-10) == TOO_LOW);
+  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,0) == NORMAL);
+  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,35) == NORMAL);
+  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,-1) == TOO_LOW);
+  REQUIRE(classifyTemperatureBreach(PASSIVE_COOLING,36) == TOO_HIGH);
   REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING,10) == NORMAL);
   REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING,50) == TOO_HIGH);
-  REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING,-10) == TOO_LOW);
+  REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING,-10) == TOO_LOW);,
+  REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING,0) == NORMAL);
+  REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING,45) == NORMAL);
+  REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING,-1) == TOO_LOW);
+  REQUIRE(classifyTemperatureBreach(HI_ACTIVE_COOLING,46) == TOO_HIGH);
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,10) == NORMAL);
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,45) == TOO_HIGH);
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,-10) == TOO_LOW);
+  REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,0) == NORMAL);
+  REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,40) == NORMAL);
+  REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,-1) == TOO_LOW);
+  REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,41) == TOO_HIGH);
+
 }
   
 TEST_CASE("checks and alerts if there is temperature breach") {
